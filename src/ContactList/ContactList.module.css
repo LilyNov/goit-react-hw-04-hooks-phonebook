@@ -4,6 +4,9 @@
 }
 
 .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
   background-color: #f6f6f6;
@@ -11,7 +14,6 @@
   text-decoration: none;
   font-size: 18px;
   color: black;
-  display: block;
 }
 
 .item:hover {
@@ -24,12 +26,11 @@
 }
 
 .btn {
-  background-color: #ddd;
   border: none;
   color: black;
-  padding: 8px 22px;
+  border-radius: 50%;
+  padding: 10px;
   text-align: center;
-  border-radius: 5px;
   font-size: 14px;
   margin: 4px 2px;
   transition: 0.3s;
