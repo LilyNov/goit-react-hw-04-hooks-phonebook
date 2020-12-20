@@ -14,6 +14,7 @@ export default function Phonebook({ OnSaveContacts }) {
   };
 
   const reset = () => {
+    console.log('reset');
     setName('');
     setNumber('');
   };

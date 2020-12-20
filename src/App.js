@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import s from './App.module.css';
 import ContactForm from './ContactForm/ContactForm';
@@ -14,23 +14,14 @@ const defaultContacts = [
 ];
 
 export default function App() {
-  const [contacts, setContacts] = useState(defaultContacts);
+  const [contacts, setContacts] = useState(
+    JSON.parse(window.localStorage.getItem('contacts')) ?? defaultContacts,
+  );
   const [filter, setFilter] = useState('');
 
-  // componentDidMount() {
-  //   const getContacts = localStorage.getItem("contacts");
-  //   const parseContacts = JSON.parse(getContacts);
-
-  //   if (parseContacts) {
-  //     this.setState({ contacts: parseContacts });
-  //   }
-  // }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state.contacts !== prevState.contacts) {
-  //     localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
-  //   }
-  // }
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const formSubmitHandler = (name, number) => {
     const myContacts = {
